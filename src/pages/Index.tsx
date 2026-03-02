@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { toast } from "sonner";
-import { Sparkles, Loader2, Zap, IndianRupee, Wallet, Tv, ListChecks } from "lucide-react";
+import { Sparkles, Loader2, Zap, IndianRupee, Wallet, Tv, ListChecks, Sun, Moon } from "lucide-react";
 import StarField from "@/components/StarField";
 import ResultCard from "@/components/ResultCard";
 import { getRecommendations, Recommendation, CONTENT_OPTIONS, AVAILABLE_PLANS } from "@/lib/recommendation-engine";
@@ -12,6 +12,11 @@ const Index = () => {
   const [currentSubs, setCurrentSubs] = useState<string[]>([]);
   const [results, setResults] = useState<Recommendation[] | null>(null);
   const [loading, setLoading] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("light", !isDark);
+  }, [isDark]);
 
   const toggleContent = (item: string) => {
     setSelectedContent((prev) =>
@@ -90,12 +95,20 @@ const Index = () => {
       <main className="relative z-10 container mx-auto px-4 py-12 max-w-4xl">
         {/* Header */}
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
+          <div className="flex items-center justify-center gap-3 mb-4 relative">
             <Zap className="w-8 h-8 text-neon-pink" />
             <h1 className="font-display text-4xl md:text-5xl font-bold neon-text text-foreground">
               SubSmart
             </h1>
             <Zap className="w-8 h-8 text-neon-cyan" />
+            {/* Day/Night toggle */}
+            <button
+              onClick={() => setIsDark(!isDark)}
+              className="absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full glass border border-border hover:scale-110 transition-all duration-300"
+              title={isDark ? "Switch to Day mode" : "Switch to Night mode"}
+            >
+              {isDark ? <Sun className="w-5 h-5 text-neon-cyan" /> : <Moon className="w-5 h-5 text-neon-purple" />}
+            </button>
           </div>
           <p className="text-muted-foreground text-lg max-w-xl mx-auto">
             Smart subscription recommendations — pata lagao kaunsa plan future mein faydemand hai ya nuksan
@@ -149,8 +162,8 @@ const Index = () => {
                   onClick={() => toggleContent(opt)}
                   className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 ${
                     selectedContent.includes(opt)
-                      ? "bg-primary text-primary-foreground border-primary shadow-[0_0_15px_hsl(270_80%_60%/0.4)]"
-                      : "bg-muted text-muted-foreground border-border hover:border-primary/50"
+                      ? "neon-box-selected bg-primary/20 text-primary-foreground shining-text"
+                      : "neon-box bg-muted/50 shining-text"
                   }`}
                 >
                   {opt}
@@ -172,8 +185,8 @@ const Index = () => {
                   onClick={() => toggleSub(plan.name)}
                   className={`px-4 py-2 rounded-full text-sm font-medium border transition-all duration-300 ${
                     currentSubs.includes(plan.name)
-                      ? "bg-accent text-accent-foreground border-accent shadow-[0_0_15px_hsl(330_85%_60%/0.4)]"
-                      : "bg-muted text-muted-foreground border-border hover:border-accent/50"
+                      ? "neon-box-selected bg-accent/20 text-accent-foreground shining-text"
+                      : "neon-box bg-muted/50 shining-text"
                   }`}
                 >
                   {plan.name}
