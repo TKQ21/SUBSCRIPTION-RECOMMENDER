@@ -53,12 +53,12 @@ export function getRecommendations(input: UserInput): Recommendation[] {
     let futureAdvice: string;
     if (!fits) {
       futureAdvice = `❌ Yeh plan aapke budget se bahar hai. Isko lena aapke liye nuksan ho sakta hai — pehle income badhayein.`;
-    } else if (budgetRatio > 0.3) {
-      futureAdvice = `⚠️ Aap apni income ka ${(budgetRatio * 100).toFixed(0)}% subscriptions pe kharch kar rahe hain. Yeh plan le sakte hain, lekin savings pe dhyan dein.`;
     } else if (contentOverlap >= 2) {
-      futureAdvice = `✅ Bilkul faydemand! Yeh plan aapki ${contentOverlap} preferences cover karta hai aur budget mein fit bhi hai. Future ke liye smart choice.`;
+      futureAdvice = `✅ Bilkul faydemand! Yeh plan aapki ${contentOverlap} preferences cover karta hai aur budget mein fit bhi hai.`;
+    } else if (contentOverlap === 1) {
+      futureAdvice = `✅ Yeh plan lena theek hai, lekin sirf 1 preference match karti hai.`;
     } else {
-      futureAdvice = `✅ Yeh plan lena theek hai, lekin sirf ${contentOverlap} preference match karti hai. Agar aapko full value chahiye toh options compare karein.`;
+      futureAdvice = `❌ Yeh plan aapki preferences match nahi karta.`;
     }
 
     return {
