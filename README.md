@@ -1,73 +1,62 @@
-# Welcome to your Lovable project
+# Subscription Recommender
 
-## Project info
+**Subscription Recommender** is a web application that helps users select the best OTT/streaming subscription plan based on their income, monthly budget, and content preferences. The app covers popular platforms like Netflix, Hotstar, Disney+, Prime Video, YouTube Premium, and ESPN+. It features a sleek **neon-themed UI** with animated stars for a modern, engaging user experience.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+project: https://subscription-recommend.lovable.app
+---
 
-## How can I edit this code?
+## Features
 
-There are several ways of editing your application.
+- **User Inputs:**
+  - Monthly Income (₹)
+  - Subscription Budget (₹/mo)
+  - Preferred Content (Movies, Series, Sports, News, Kids)
+  - Current Subscriptions (optional)
+  
+- **Real-Time Recommendations:**
+  - Suggests OTT platforms that fit user’s budget and content preference
+  - Skips already subscribed plans
+  - Provides “Future Advice” for each recommended plan
+  
+- **Frontend:**
+  - React + Tailwind CSS
+  - Neon theme with animated stars
+  - Responsive design
 
-**Use Lovable**
+- **Backend:**
+  - FastAPI
+  - Rule-based recommendation engine
+  - Input validation and error handling
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
 
-**Use your preferred IDE**
+Usage
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Fill in the Monthly Income and Subscription Budget.
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+Select Preferred Content checkboxes (Movies, Series, Sports, etc.).
 
-Follow these steps:
+Optionally, select Current Subscriptions to skip already owned plans.
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+Click Recommend.
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+View the recommended OTT plans along with “Future Advice”.
 
-# Step 3: Install the necessary dependencies.
-npm i
+Sample Output
+Recommended Plan(s): Hotstar, Disney+, Prime Video
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
+Hotstar
+₹10/mo
+Covers Sports, Movies
+✅ Bilkul faydemand! Yeh plan aapki 2 preferences cover karta hai aur budget mein fit bhi hai.
 
-**Edit a file directly in GitHub**
+Disney+
+₹12/mo
+Covers Movies
+✅ Yeh plan lena theek hai, lekin sirf 1 preference match karti hai.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Prime Video
+₹13/mo
+Covers Movies
+✅ Yeh plan lena theek hai, lekin sirf 1 preference match karti hai.
