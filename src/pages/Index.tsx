@@ -238,6 +238,12 @@ const Index = () => {
         )}
       </main>
 
+      {/* Footer */}
+      <footer className="relative z-10 mt-16 pb-8 text-center">
+        <p className="text-sm text-white/60">© 2026 Mohd Kaif</p>
+        <p className="text-xs text-white/40 mt-1">Built with AI assistance</p>
+      </footer>
+
       {/* Inline keyframe for result cards */}
       <style>{`
         @keyframes fadeSlideUp {
